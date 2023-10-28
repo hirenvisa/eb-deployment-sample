@@ -28,6 +28,15 @@ jobs:
         pip --version
         pip install awsebcli --upgrade --user
         eb --version
+    - name: Configure AWS
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        role-session-name: ${{ secrets.AWS_ROLE_SESSION_NAME }}
+        aws-region: 'ap-south-1'
+    - name: Deploy
+      run: eb deploy dotnet-env-dev --staged
+      
       
       
       
