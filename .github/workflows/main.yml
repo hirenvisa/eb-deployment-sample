@@ -1,1 +1,24 @@
-
+name: Weather API on beanstalk
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build_deploy:  
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v2
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.0.x'
+    - name: publish
+      run: dotnet publish helloworld-api -o site
+    - name: Generate deployment package
+      run: cd helloworld-api; zip -r ../deploy.zip . -x '*.git*'; cd ..
+    - name: update .NET to artifacts
+      uses: actions/upload-artifact@v3
+      
+      
+      
