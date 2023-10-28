@@ -19,6 +19,9 @@ jobs:
       run: cd helloworld-api; zip -r ../deploy.zip . -x '*.git*'; cd ..
     - name: update .NET to artifacts
       uses: actions/upload-artifact@v3
+      with:
+        name: deploy-zip
+        path: deploy.zip
       
       
       
