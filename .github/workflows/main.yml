@@ -22,6 +22,12 @@ jobs:
       with:
         name: deploy-zip
         path: deploy.zip
+    - name: Setup elastic beanstalk CLI setup
+      run:
+        python --version
+        pip --version
+        pip install awsebcli --upgrade --user
+        eb --version
       
       
       
