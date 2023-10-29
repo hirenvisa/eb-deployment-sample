@@ -38,9 +38,7 @@ jobs:
         role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
         role-session-name:  ${{ secrets.AWS_SESSION_NAME }}
         aws-region: 'ap-south-1'
-        audience: 'sts.amazonaws.com'
-    - name: Sts GetCallerIdentity
-      run: aws Sts GetCallerIdentity
+        audience: 'sts.amazonaws.com'    
     - name: Deploy
       run: aws eb deploy dotnet-env-dev --staged
       
