@@ -34,6 +34,7 @@ jobs:
         role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         role-session-name: ${{ secrets.AWS_ROLE_SESSION_NAME }}
         aws-region: 'ap-south-1'
+        audience: 'sts.amazonaws.com'
     - name: Deploy
       run: eb deploy dotnet-env-dev --staged
       
