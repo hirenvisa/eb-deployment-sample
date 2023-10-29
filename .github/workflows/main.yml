@@ -40,7 +40,7 @@ jobs:
         aws-region: 'ap-south-1'
         audience: 'sts.amazonaws.com'    
     - name: Deploy
-      run: aws eb deploy dotnet-env-dev --staged
+      run: eb deploy dotnet-env-dev --staged
       
       
       
