@@ -40,9 +40,9 @@ jobs:
         aws-region: 'ap-south-1'
         audience: 'sts.amazonaws.com'
     - name: Sts GetCallerIdentity
-      run: Sts GetCallerIdentity
+      run: aws Sts GetCallerIdentity
     - name: Deploy
-      run: eb deploy dotnet-env-dev --staged
+      run: aws eb deploy dotnet-env-dev --staged
       
       
       
