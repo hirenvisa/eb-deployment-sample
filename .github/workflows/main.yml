@@ -31,10 +31,12 @@ jobs:
     - name: Configure AWS
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-        role-session-name: ${{ secrets.AWS_ROLE_SESSION_NAME }}
+        role-to-assume: arn:aws:iam::275844431286:role/GitHubAction-AssumeRoleWithAction
+        role-session-name: GitHub_to_AWS_via_FederatedOIDC
         aws-region: 'ap-south-1'
         audience: 'sts.amazonaws.com'
+    - name: Sts GetCallerIdentity
+      run: Sts GetCallerIdentity
     - name: Deploy
       run: eb deploy dotnet-env-dev --staged
       
